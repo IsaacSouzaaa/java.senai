@@ -1,0 +1,51 @@
+
+  <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário Tailwind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <nav class="bg-gray-800 text-white px-8 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Meu Site</h1>
+    <a href="#" class="text-sm hover:underline">Início</a>
+  </nav>
+
+  <div class="max-w-2xl mx-auto mt-10 px-4">
+
+    <h2 class="text-2xl font-bold mb-4">Formulário de Cadastro</h2>
+    <div class="bg-white shadow-md rounded p-6">
+      <form>
+        <div class="mb-4">
+          <label for="nome" class="block text-gray-700 font-medium">Nome</label>
+          <input type="text" id="nome" name="nome" class="w-full mt-1 p-2 border border-gray-300 rounded">
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 font-medium">E-mail</label>
+          <input type="email" id="email" name="email" class="w-full mt-1 p-2 border border-gray-300 rounded">
+        </div>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Adicionar</button>
+      </form>
+    </div>
+
+    <h2 class="text-2xl font-bold mt-10 mb-4">Tabela de Cadastros</h2>
+    <div class="overflow-x-auto shadow-md rounded">
+      <table class="w-full text-left bg-gray-100">
+        <thead class="bg-gray-200 text-gray-700">
+          <tr>
+            <th class="px-4 py-2 font-semibold">Nome</th>
+            <th class="px-4 py-2 font-semibold">E-mail</th>
+            <th class="px-4 py-2 font-semibold">Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</body>
+</html>
