@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form id="cadastroForm">
+        <h2>Cadastro</h2>
+        <label>Nome:<br>
+            <input type="text" name="nome" required>
+        </label><br>
+        <label>Email:<br>
+            <input type="email" name="email" required>
+        </label><br>
+        <label>Senha:<br>
+            <input type="password" name="senha" required>
+        </label><br>
+        <label>CEP:<br>
+            <input type="text" name="cep" id="cep" maxlength="8" required>
+        </label><br>
+        <span id="cep-erro" style="color:red; display:none;">CEP inválido!</span>
+        <label>Endereço:<br>
+            <input type="text" name="endereco" id="endereco" required>
+        </label><br>
+        <label>Número:<br>
+            <input type="text" name="numero" required>
+        </label><br>
+        <label>Bairro:<br>
+            <input type="text" name="bairro" id="bairro" required>
+        </label><br>
+        <label>Cidade:<br>
+            <input type="text" name="cidade" id="cidade" required>
+        </label><br>
+        <label>Estado:<br>
+            <input type="text" name="estado" id="estado" required>
+        </label><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+    <script src="cadastro.js"></script>
+</body>
+</html>
