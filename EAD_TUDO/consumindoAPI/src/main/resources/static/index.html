@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - EAD</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f5f5; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .login-container { background: #fff; padding: 32px 24px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); width: 320px; }
+        h2 { text-align: center; margin-bottom: 24px; }
+        label { display: block; margin-bottom: 6px; }
+        input[type="email"], input[type="password"] { width: 100%; padding: 8px; margin-bottom: 16px; border: 1px solid #ccc; border-radius: 4px; }
+        button { width: 100%; padding: 10px; background: #1976d2; color: #fff; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+        button:hover { background: #1565c0; }
+        .register-link { text-align: center; margin-top: 16px; }
+        .register-link a { color: #1976d2; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" required>
+
+            <button type="submit">Entrar</button>
+        </form>
+        <div class="register-link">
+            <span>Não tem conta? <a href="cadastro.html">Cadastre-se</a></span>
+        </div>
+        <div id="mensagemLogin" style="margin-top:16px;text-align:center;"></div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim().toLowerCase();
+            const senha = document.getElementById('senha').value;
+            const mensagem = document.getElementById('mensagemLogin');
+            mensagem.textContent = '';
+            try {
+                const resp = await fetch('http://localhost:8080/funcionarios');
+                if (!resp.ok) throw new Error('Erro ao buscar usuários');
+                const funcionarios = await resp.json();
+                const usuario = funcionarios.find(f => f.email && f.email.toLowerCase() === email && f.senha === senha);
+                if (usuario) {
+                    mensagem.style.color = 'green';
+                    mensagem.textContent = 'Login realizado com sucesso!';
+                    setTimeout(() => {
+                        window.location.href = 'cargos.html';
+                    }, 800);
+                } else {
+                    mensagem.style.color = 'red';
+                    mensagem.textContent = 'Email ou senha inválidos.';
+                }
+            } catch (err) {
+                mensagem.style.color = 'red';
+                mensagem.textContent = 'Erro ao conectar com o servidor.';
+            }
+        });
+    </script>
+</body>
+</html>
